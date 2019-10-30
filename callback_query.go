@@ -72,7 +72,7 @@ func queryCallback(scope *Scope) {
 					now = NowFunc() //避免重试的日志里耗时为累加
 				}()
 				scope.db.Error = nil //避免重试时还记录着上一次的错误
-				if rows, err := scope.SQLDB().Query(scope.SQL, scope.SQLVars...); scope.Err(err) == nil {
+				if rows, err := scope.SQLDB().Query(scope.SQL, scope.SQLVars...); scope.Err(err) != nil {
 					return err
 				} else {
 					defer rows.Close()
