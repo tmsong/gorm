@@ -25,7 +25,7 @@ func queryCallback(scope *Scope) {
 		return
 	}
 
-	defer scope.trace(scope.db.nowFunc())
+	//defer scope.trace(scope.db.nowFunc())
 
 	var (
 		isSlice, isPtr bool
